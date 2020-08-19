@@ -42,7 +42,8 @@ while True:
         
 
         price=re.findall('₹.\S+',soup)
-        for p in price:
+        for p in range(2):
+            p=price[p]
         
             l=0
             for i in range(len(p)):
@@ -53,6 +54,8 @@ while True:
                     break
             if l==1:
                 break
+            else:
+                pPrice=price[0]
 
         price=''
         for i in range(len(pPrice)):
@@ -101,6 +104,7 @@ while True:
         )
         print('Email Has Been Sent !')
         server.quit()
+        quit()
 
 
 
@@ -128,6 +132,7 @@ while True:
         
     def exit():
         globals()['st']=0
+        quit()
 
     def preSend():
         mail=mailEntry.get()
@@ -141,7 +146,9 @@ while True:
              while SCAN:
                  if globals()['PRICE'] < globals()['BUDG']:
                      sendMail(recv,mail,psw)
+                     
                      SCAN=False
+
 
 
      #tkinter ui            
